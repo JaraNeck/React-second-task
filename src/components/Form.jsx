@@ -1,5 +1,7 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { addExpense } from "../redux/slices/expensesSlice";
 
 const FormContainer = styled.div`
   display: flex;
@@ -35,7 +37,9 @@ const StyledForm = styled.form`
   }
 `;
 
-const Form = ({ addExpense }) => {
+const Form = () => {
+  const dispatch = useDispatch();
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -56,7 +60,8 @@ const Form = ({ addExpense }) => {
       description,
     };
 
-    addExpense(newExpense);
+    dispatch(addExpense(newExpense));
+    // addExpense(newExpense);
     e.target.reset();
   };
 
