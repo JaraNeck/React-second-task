@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { ExpenseContext } from "../contexts/ExpenseContext";
 
 const MonthSelectorContainer = styled.div`
   display: flex;
@@ -30,7 +31,9 @@ const MonthTab = styled.div.attrs((props) => ({
   }
 `;
 
-const MonthSelector = ({ selectedMonth, setSelectedMonth }) => {
+const MonthSelector = () => {
+  const { selectedMonth, setSelectedMonth } = useContext(ExpenseContext);
+
   const months = [
     "1월",
     "2월",

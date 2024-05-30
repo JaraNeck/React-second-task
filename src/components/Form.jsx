@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { ExpenseContext } from "../contexts/ExpenseContext";
 
 const FormContainer = styled.div`
   display: flex;
@@ -35,7 +36,9 @@ const StyledForm = styled.form`
   }
 `;
 
-const Form = ({ addExpense }) => {
+const Form = () => {
+  const { addExpense } = useContext(ExpenseContext);
+
   const onSubmit = (e) => {
     e.preventDefault();
 

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { ExpenseContext } from "../contexts/ExpenseContext";
 
 const ListContainer = styled.div`
   border: 1px solid;
@@ -23,7 +24,9 @@ const ListItem = styled.li`
   }
 `;
 
-const List = ({ expenses, selectedMonth }) => {
+const List = () => {
+  const { expenses, selectedMonth } = useContext(ExpenseContext);
+
   // 월 이름을 월 숫자로 매핑
   const monthMap = {
     "1월": "01",
